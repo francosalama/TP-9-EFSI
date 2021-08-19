@@ -1,8 +1,18 @@
 import React from 'react';
+import Cita from './Cita';
 
-const ListadoCitas = ({listadoCitas}) => {
+const ListadoCitas = ({listadoCitas, eliminarCita}) => {
     return ( 
-        <h2>Citas</h2>
+        <div class="one-half column">
+            <h2>Administra tus citas</h2>
+            {listadoCitas.map(cita=>(
+                <Cita
+                    key={cita.nombreMascota}
+                    cita = {cita}
+                    eliminarCita = {eliminarCita}>
+                </Cita>
+            ))}
+        </div>
      );
 }
  
