@@ -23,8 +23,7 @@ const Form = ({crearCita}) => {
     const onSubmit = e =>{
           e.preventDefault();
 
-        if(nombreMascota.trim === '' || nombreDuenio.trim === '' || fecha.trim === '' || hora.trim === '' || sintomas.trim === ''){
-          console.log('nashe')
+        if(nombreMascota === '' || nombreDuenio === '' || fecha === '' || hora === '' || sintomas === ''){
           guardarError(true);
           return;
         }
@@ -44,8 +43,9 @@ const Form = ({crearCita}) => {
     return (
       <div class="one-half column">
         <h2>Crear mi Cita</h2>
+        {error ? <p className="alert alert-danger mt-4">Hubo un error</p> : null}
         <form
-          onSubmit={onSubmit}
+          onSubmit={onSubmit} 
         >
           <label>Nombre Mascota</label>
           <input
